@@ -23,10 +23,20 @@ Route::post('/accounts/income-post', 'TransactionController@incomeStore')->name(
 Route::post('/accounts/expense-post', 'TransactionController@expenseStore')->name('expense.post');
 
 Route::get('/department',"DepartmentController@index" )->name('admin.department');
+Route::post('/department-post', 'DepartmentController@store')->name('department.post');
+Route::get('/department/delete/{id}', 'DepartmentController@destroy')->name('department.delete');
 
 Route::get('/employee','EmployeeController@index' )->name('employee.list');
 Route::get('/employee/add-employee','EmployeeController@create' )->name('employee.add');
 Route::get('/employee/edit-employee','EmployeeController@edit' )->name('employee.edit');
+
+Route::get('/award',"AwardController@index" )->name('award.index');
+Route::get('/award/create',"AwardController@create" )->name('award.create');
+Route::get('/award/edit/{id}',"AwardController@edit" )->name('award.edit');
+Route::put('/award/update/{id}',"AwardController@update" )->name('award.update');
+Route::get('/award/delete/{id}',"AwardController@destroy" )->name('award.delete');
+Route::post('/award-post',"AwardController@store" )->name('award.post');
+
 
 
 

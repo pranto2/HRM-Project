@@ -720,6 +720,7 @@
 @include('backend.template-part.footer')
 <!-- END FOOTER -->
 @include('backend.template-part.script')
+@yield('script')
 </body>
 
 </html>

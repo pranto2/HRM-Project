@@ -75,6 +75,16 @@
                 </ul>
             </li>
 
+            <li class="nav-item start @php echo "active",(request()->path() != 'award')?:"";@endphp
+            @php echo "active",(request()->path() != 'award/create')?:"";@endphp
+            @php echo "active",(request()->path() != 'award/edit/{id}')?:"";@endphp">
+                <a href="{{route('award.index')}}" class="nav-link nav-toggle">
+                    <i class="icon-trophy"></i>
+                    <span class="title">Award List</span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+
             <li class="heading">
                 <h3 class="uppercase">Account Management</h3>
             </li>

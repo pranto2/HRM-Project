@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Department;
 use App\Designation;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
 
-class DepartmentController extends Controller
+class DesignationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +14,7 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        $dep = Department::all();
-
-        return view('backend.department.department-list', compact('dep', 'deg'));
+        //
     }
 
     /**
@@ -28,7 +24,7 @@ class DepartmentController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**
@@ -39,31 +35,16 @@ class DepartmentController extends Controller
      */
     public function store(Request $request)
     {
-        $inputs = Input::except(['_token', 'name']);
-
-        $this->validate($request,array(
-           'name' => 'required|max:191',
-        ));
-        $dep = new Department;
-        $dep->name = $request->name;
-        $dep->save();
-
-        foreach ($inputs as $input => $val) {
-            $deg = new Designation;
-            $deg->deg_name = $val;
-            $deg->dept_id = $dep->id;
-            $deg->save();
-        }
-        return redirect()->back();
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Designation  $designation
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Designation $designation)
     {
         //
     }
@@ -71,10 +52,10 @@ class DepartmentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Designation  $designation
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Designation $designation)
     {
         //
     }
@@ -83,10 +64,10 @@ class DepartmentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Designation  $designation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Designation $designation)
     {
         //
     }
@@ -94,14 +75,11 @@ class DepartmentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Designation  $designation
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Designation $designation)
     {
-        Designation::find($id)->delete();
-        Department::find($id)->delete();
-        return redirect()->back()->withmsg("Removed Successfully");
-
+        //
     }
 }
